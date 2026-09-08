@@ -6,12 +6,13 @@
 }
 
 .zorx-services-section {
-  background-color: #06110B;
-  color: #F7F8F5;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 8rem 0 7rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .services-cinematic-container {
@@ -48,7 +49,7 @@
   font-size: var(--font-xs);
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: #89958D;
+  color: var(--text-secondary);
   text-transform: uppercase;
   margin-bottom: 1.6rem;
 }
@@ -66,7 +67,7 @@
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #F7F8F5;
+  color: var(--text-primary);
   margin-bottom: 1.8rem;
 }
 
@@ -80,7 +81,7 @@
 
 .services-paragraph {
   font-size: clamp(1.025rem, 1.4vw, 1.18rem);
-  color: #89958D;
+  color: var(--text-secondary);
   line-height: 1.68;
   margin-bottom: 2rem;
   font-weight: 400;
@@ -97,14 +98,14 @@
   gap: 0.5rem;
   font-size: var(--font-sm);
   font-weight: 600;
-  color: #89958D;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--transition-fast);
   padding: 0.4rem 0;
 }
 
 .services-cta-link:hover {
-  color: #F7F8F5;
+  color: var(--text-primary);
 }
 
 .services-cta-link .link-arrow {
@@ -133,7 +134,7 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.15));
 }
 
 .r-architectural-svg {
@@ -162,7 +163,7 @@
   overflow: hidden;
   padding: 2.5rem 0;
   cursor: grab;
-  touch-action: pan-y; /* Allows vertical scrolling while tracking horizontal drag */
+  touch-action: pan-y;
   user-select: none;
 }
 
@@ -181,9 +182,9 @@
   flex: 0 0 var(--card-width);
   width: var(--card-width);
   min-height: 330px;
-  background: rgba(12, 26, 19, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
   padding: 2.2rem;
   display: flex;
   flex-direction: column;
@@ -202,16 +203,16 @@
   transform: scale(1.08);
   opacity: 1;
   border-color: #026D2E;
-  background: rgba(15, 32, 23, 0.95);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(2, 109, 46, 0.25);
+  background: var(--bg-card);
+  box-shadow: 0 20px 45px rgba(2, 109, 46, 0.18);
   z-index: 5;
 }
 
 /* 2. NEIGHBOR CARDS (SMALLER, PARTIALLY VISIBLE, REDUCED OPACITY) */
 .service-carousel-card.card-neighbor {
   transform: scale(0.85);
-  opacity: 0.5;
-  border-color: rgba(255, 255, 255, 0.06);
+  opacity: 0.55;
+  border-color: var(--border-subtle);
   z-index: 2;
 }
 
@@ -219,7 +220,7 @@
 .service-carousel-card.card-outer,
 .service-carousel-card.card-hidden {
   transform: scale(0.75);
-  opacity: 0.2;
+  opacity: 0.25;
   z-index: 1;
 }
 
@@ -236,7 +237,7 @@
   font-size: var(--font-sm);
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: #89958D;
+  color: var(--text-secondary);
   transition: color 0.3s ease;
 }
 
@@ -245,21 +246,21 @@
 }
 
 .service-card-icon-wrap {
-  width: 38px;
-  height: 38px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #89958D;
+  color: var(--text-secondary);
   transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
 
 .card-active .service-card-icon-wrap {
   border-color: #026D2E;
-  color: #F7F8F5;
-  background-color: rgba(2, 109, 46, 0.18);
+  color: #026D2E;
+  background-color: rgba(2, 109, 46, 0.1);
 }
 
 .card-icon {
@@ -274,7 +275,7 @@
   font-family: var(--font-body);
   font-size: 1.35rem;
   font-weight: 700;
-  color: #F7F8F5;
+  color: var(--text-primary);
   margin-bottom: 0.8rem;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -282,7 +283,7 @@
 
 .service-card-desc {
   font-size: var(--font-sm);
-  color: #89958D;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -294,13 +295,13 @@
   font-size: var(--font-xs);
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: #89958D;
+  color: var(--text-secondary);
   margin-top: auto;
   transition: color 0.3s ease;
 }
 
 .card-active .service-card-footer {
-  color: #F7F8F5;
+  color: var(--text-primary);
 }
 
 .card-active .card-arrow {

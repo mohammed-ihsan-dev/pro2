@@ -1,11 +1,12 @@
 /* Cinematic ZORX Why ZORX Section (The "X" Storytelling Chapter) */
 .zorx-why-section {
-  background-color: #06110B;
-  color: #F7F8F5;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 8rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .why-cinematic-container {
@@ -37,7 +38,7 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.15));
 }
 
 .x-architectural-svg {
@@ -63,7 +64,7 @@
   font-size: var(--font-xs);
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: #89958D;
+  color: var(--text-secondary);
   text-transform: uppercase;
   margin-bottom: 1.6rem;
 }
@@ -81,7 +82,7 @@
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #F7F8F5;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -95,7 +96,7 @@
 
 .why-paragraph {
   font-size: clamp(1.025rem, 1.4vw, 1.18rem);
-  color: #89958D;
+  color: var(--text-secondary);
   line-height: 1.68;
   margin-bottom: 2.5rem;
   font-weight: 400;
@@ -114,12 +115,12 @@
   align-items: flex-start;
   gap: 1.25rem;
   padding: 1.25rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-subtle);
   transition: border-color 0.3s ease;
 }
 
 .differentiator-row:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .differentiator-row:hover {
@@ -132,19 +133,19 @@
   height: 44px;
   border-radius: 50%;
   border: 1px solid #026D2E;
-  background: rgba(2, 109, 46, 0.12);
+  background: rgba(2, 109, 46, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #08A94F;
+  color: #026D2E;
   margin-top: 0.2rem;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .differentiator-row:hover .differentiator-icon-badge {
   transform: scale(1.08);
-  background: rgba(2, 109, 46, 0.25);
-  color: #F7F8F5;
+  background: rgba(2, 109, 46, 0.2);
+  color: #026D2E;
 }
 
 .differentiator-content {
@@ -157,7 +158,7 @@
   font-family: var(--font-body);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #F7F8F5;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -172,7 +173,7 @@
 
 .diff-desc {
   font-size: var(--font-sm);
-  color: #89958D;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -187,14 +188,14 @@
   gap: 0.5rem;
   font-size: var(--font-sm);
   font-weight: 600;
-  color: #89958D;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--transition-fast);
   padding: 0.4rem 0;
 }
 
 .why-approach-link:hover {
-  color: #F7F8F5;
+  color: var(--text-primary);
 }
 
 .why-approach-link .link-arrow {

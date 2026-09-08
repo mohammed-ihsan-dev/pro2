@@ -58,6 +58,116 @@
   background-color: rgba(2, 109, 46, 0.2);
 }
 
+/* --------------------------------------------------
+   SUBTLE ABSTRACT GEOMETRIC MOTION (OUR WORK INTRO RIGHT SIDE)
+   -------------------------------------------------- */
+.work-intro-abstract-motion {
+  position: absolute;
+  right: 12%;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 320px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Faint background circle */
+.abstract-element.abstract-circle-lg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  margin-top: -130px;
+  margin-left: -130px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 109, 46, 0.14);
+  animation: floatLargeCircle 11.5s ease-in-out infinite alternate;
+}
+
+/* Thin outlined circle */
+.abstract-element.abstract-circle-outline {
+  position: absolute;
+  top: 18%;
+  right: 12%;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1px solid rgba(2, 109, 46, 0.42);
+  will-change: transform;
+  animation: floatCircleOutline 9s ease-in-out infinite alternate;
+}
+
+/* Small solid ZORX green square */
+.abstract-element.abstract-square-solid {
+  position: absolute;
+  bottom: 24%;
+  left: 18%;
+  width: 10px;
+  height: 10px;
+  background-color: #026D2E;
+  opacity: 0.85;
+  animation: floatSquare 10.8s ease-in-out infinite alternate;
+}
+
+/* Very thin line */
+.abstract-element.abstract-line-thin {
+  position: absolute;
+  top: 58%;
+  left: 32%;
+  width: 65px;
+  height: 1px;
+  background-color: rgba(2, 109, 46, 0.35);
+  animation: floatLine 8.4s ease-in-out infinite alternate;
+}
+
+/* Desynchronized floating CSS keyframes using transform and opacity ONLY */
+@keyframes floatLargeCircle {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate3d(-10px, 8px, 0) scale(1.03);
+    opacity: 0.9;
+  }
+}
+
+@keyframes floatCircleOutline {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(0, -8px, 0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes floatSquare {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-8px, -10px, 0) scale(0.95);
+  }
+}
+
+@keyframes floatLine {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate3d(10px, 4px, 0);
+    opacity: 0.5;
+  }
+}
+
 .work-intro-content {
   position: relative;
   z-index: 2;
@@ -159,7 +269,7 @@
   min-height: 100vh;
   overflow: hidden;
   background-color: #06110B;
-  cursor: pointer;
+  cursor: default;
   box-sizing: border-box;
 }
 
@@ -337,6 +447,22 @@
   .work-scroll-indicator {
     left: 3rem;
   }
+  .work-intro-abstract-motion {
+    right: 4%;
+    width: 220px;
+    height: 220px;
+    opacity: 0.55;
+  }
+  .abstract-element.abstract-circle-lg {
+    width: 180px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
+  }
+  .abstract-element.abstract-circle-outline {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -361,5 +487,128 @@
   .work-scroll-indicator {
     left: 1.5rem;
     bottom: 2rem;
+  }
+  .work-intro-abstract-motion {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   LIGHT MODE THEME OVERRIDES (OUR WORK)
+   -------------------------------------------------- */
+html[data-theme="light"] .zorx-portfolio-container {
+  background-color: #F7F9F7;
+  color: #07130D;
+}
+
+html[data-theme="light"] .work-intro-screen {
+  background-color: #F7F9F7;
+  border-top: 1px solid #DDE7E0;
+}
+
+html[data-theme="light"] .work-intro-bg-lines .bg-line {
+  background-color: rgba(7, 19, 13, 0.04);
+}
+
+html[data-theme="light"] .work-intro-bg-lines .line-h1 {
+  background-color: rgba(2, 109, 46, 0.15);
+}
+
+html[data-theme="light"] .abstract-element.abstract-circle-lg {
+  border-color: rgba(2, 109, 46, 0.12);
+}
+
+html[data-theme="light"] .abstract-element.abstract-circle-outline {
+  border-color: rgba(2, 109, 46, 0.38);
+}
+
+html[data-theme="light"] .abstract-element.abstract-line-thin {
+  background-color: rgba(2, 109, 46, 0.3);
+}
+
+html[data-theme="light"] .intro-eyebrow-tag {
+  color: #68736C;
+}
+
+html[data-theme="light"] .giant-work-typography,
+html[data-theme="light"] .giant-work-typography .word-our,
+html[data-theme="light"] .giant-work-typography .word-work {
+  color: #07130D;
+}
+
+html[data-theme="light"] .work-intro-subtext,
+html[data-theme="light"] .indicator-label {
+  color: #68736C;
+}
+
+html[data-theme="light"] .fullscreen-project-section {
+  background-color: #F7F9F7;
+}
+
+html[data-theme="light"] .fullscreen-bg-image {
+  opacity: 0.94;
+}
+
+html[data-theme="light"] .fullscreen-project-section.is-visible:hover .fullscreen-bg-image {
+  opacity: 1;
+}
+
+html[data-theme="light"] .fullscreen-gradient-overlay {
+  background: linear-gradient(
+    to top, 
+    rgba(247, 249, 247, 0.95) 0%, 
+    rgba(247, 249, 247, 0.5) 45%, 
+    rgba(247, 249, 247, 0.1) 100%
+  );
+}
+
+html[data-theme="light"] .project-number-tag {
+  color: #026D2E;
+}
+
+html[data-theme="light"] .project-category-tag {
+  color: #014A20;
+  background-color: rgba(2, 109, 46, 0.08);
+  border-color: rgba(2, 109, 46, 0.25);
+}
+
+html[data-theme="light"] .metric-pill {
+  color: #026D2E;
+  background: rgba(2, 109, 46, 0.08);
+  border-color: rgba(2, 109, 46, 0.25);
+}
+
+html[data-theme="light"] .metric-pill.secondary {
+  color: #07130D;
+  background: rgba(7, 19, 13, 0.05);
+  border-color: rgba(7, 19, 13, 0.12);
+}
+
+html[data-theme="light"] .project-editorial-title {
+  color: #07130D;
+}
+
+html[data-theme="light"] .project-editorial-desc {
+  color: #68736C;
+}
+
+html[data-theme="light"] .project-action-link {
+  color: #68736C;
+}
+
+html[data-theme="light"] .fullscreen-project-section:hover .project-action-link {
+  color: #07130D;
+}
+
+html[data-theme="light"] .fullscreen-project-section:hover .link-arrow {
+  color: #026D2E;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abstract-element.abstract-circle-lg,
+  .abstract-element.abstract-circle-outline,
+  .abstract-element.abstract-square-solid,
+  .abstract-element.abstract-line-thin {
+    animation: none !important;
   }
 }

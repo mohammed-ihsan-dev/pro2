@@ -3,17 +3,21 @@ import { ArrowUpRight } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 import './PortfolioSection.css';
 
-// High-resolution dark photography assets for full-screen covers
-const projectImages = [
-  '/assets/images/zorx-dubai-architecture.jpg',
-  '/assets/images/zorx-services-growth.jpg',
-  '/assets/images/zorx-about-culture.jpg',
+// High-resolution photography assets for full-screen covers
+const darkProjectImages = [
   '/assets/images/zorx-dubai-architecture.jpg',
   '/assets/images/zorx-services-growth.jpg',
   '/assets/images/zorx-about-culture.jpg'
 ];
 
-export function PortfolioSection({ onOpenModal }) {
+const lightProjectImages = [
+  '/assets/images/zorx-about-culture-light.jpg',
+  '/assets/images/zorx-dubai-architecture-light.jpg',
+  '/assets/images/zorx-services-growth-light.jpg'
+];
+
+export function PortfolioSection({ theme = 'light' }) {
+  const projectImages = theme === 'dark' ? darkProjectImages : lightProjectImages;
   return (
     <section id="portfolio" className="zorx-portfolio-container">
       
@@ -26,6 +30,14 @@ export function PortfolioSection({ onOpenModal }) {
           <div className="bg-line line-v1"></div>
           <div className="bg-line line-v2"></div>
           <div className="bg-line line-h1"></div>
+        </div>
+
+        {/* Abstract Geometric Motion Composition */}
+        <div className="work-intro-abstract-motion" aria-hidden="true">
+          <div className="abstract-element abstract-circle-lg"></div>
+          <div className="abstract-element abstract-circle-outline"></div>
+          <div className="abstract-element abstract-square-solid"></div>
+          <div className="abstract-element abstract-line-thin"></div>
         </div>
 
         <div className="work-intro-content reveal-up">
@@ -51,10 +63,10 @@ export function PortfolioSection({ onOpenModal }) {
       </div>
 
       {/* --------------------------------------------------
-          FULL-SCREEN VERTICAL STACKED PROJECT SHOWCASE
+          FULL-SCREEN VERTICAL STACKED PROJECT SHOWCASE (EXACTLY 3 PROJECTS)
           -------------------------------------------------- */}
       <div className="fullbleed-projects-stack">
-        {portfolioData.slice(0, 4).map((project, index) => {
+        {portfolioData.slice(0, 3).map((project, index) => {
           const projectImg = projectImages[index % projectImages.length];
           const projectNumber = String(index + 1).padStart(2, '0');
 
@@ -62,13 +74,14 @@ export function PortfolioSection({ onOpenModal }) {
             <div 
               key={project.id}
               className="fullscreen-project-section reveal-up"
-              onClick={() => onOpenModal && onOpenModal(project)}
             >
               {/* Full-Bleed Image Background */}
               <div className="fullscreen-image-wrapper">
                 <img 
                   src={projectImg} 
                   alt={project.title} 
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
                   className="fullscreen-bg-image"
                 />
                 <div className="fullscreen-gradient-overlay"></div>
@@ -79,7 +92,7 @@ export function PortfolioSection({ onOpenModal }) {
                 
                 {/* Top Meta Bar */}
                 <div className="project-top-bar">
-                  <span className="project-number-tag">{projectNumber} / 04</span>
+                  <span className="project-number-tag">{projectNumber} / 03</span>
                   <span className="project-category-tag">{project.category}</span>
                 </div>
 

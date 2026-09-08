@@ -1,10 +1,11 @@
 .zorx-footer {
-  background-color: var(--color-dark);
-  border-top: 1px solid var(--color-border-dark);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 5rem;
   padding-bottom: 2.5rem;
   position: relative;
   z-index: 2;
+  transition: background-color 0.25s ease;
 }
 
 .footer-top-grid {
@@ -33,7 +34,7 @@
 
 .footer-tagline {
   font-size: var(--font-sm);
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
@@ -49,18 +50,18 @@
   align-items: center;
   gap: 0.6rem;
   font-size: var(--font-xs);
-  color: var(--color-muted);
+  color: var(--text-secondary);
 }
 
 .contact-item .contact-icon {
-  color: var(--color-primary);
+  color: #026D2E;
 }
 
 .footer-col-title {
   font-size: var(--font-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-white);
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -73,13 +74,13 @@
   align-items: center;
   gap: 0.4rem;
   font-size: var(--font-xs);
-  color: var(--color-primary-light);
+  color: #026D2E;
   margin-bottom: 0.3rem;
 }
 
 .office-address {
   font-size: var(--font-xs);
-  color: var(--color-muted);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -96,7 +97,7 @@
 }
 
 .footer-links-list a:hover {
-  color: var(--color-primary);
+  color: #026D2E;
 }
 
 .footer-bottom-bar {
@@ -104,14 +105,14 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border-dark);
+  border-top: 1px solid var(--border-subtle);
   flex-wrap: wrap;
   gap: 1.5rem;
 }
 
 .copyright-text {
   font-size: var(--font-xs);
-  color: var(--color-muted);
+  color: var(--text-secondary);
 }
 
 .scroll-top-btn {

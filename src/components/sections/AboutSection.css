@@ -1,11 +1,12 @@
 /* Cinematic ZORX About Section (The "O" Storytelling Chapter) */
 .zorx-about-section {
-  background-color: #06110B;
-  color: #F7F8F5;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 8rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .about-cinematic-container {
@@ -34,7 +35,7 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.15));
 }
 
 .o-architectural-svg {
@@ -59,7 +60,7 @@
   font-size: var(--font-xs);
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: #89958D;
+  color: var(--text-secondary);
   text-transform: uppercase;
   margin-bottom: 1.6rem;
 }
@@ -78,7 +79,7 @@
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: -0.03em;
-  color: #F7F8F5;
+  color: var(--text-primary);
   margin-bottom: 1.8rem;
 }
 
@@ -93,7 +94,7 @@
 /* Paragraph Prose */
 .about-paragraph {
   font-size: clamp(1.025rem, 1.4vw, 1.18rem);
-  color: #89958D;
+  color: var(--text-secondary);
   line-height: 1.68;
   margin-bottom: 1.25rem;
   font-weight: 400;
@@ -110,14 +111,14 @@
   gap: 0.5rem;
   font-size: var(--font-sm);
   font-weight: 600;
-  color: #89958D;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--transition-fast);
   padding: 0.4rem 0;
 }
 
 .about-discover-link:hover {
-  color: #F7F8F5;
+  color: var(--text-primary);
 }
 
 .about-discover-link .link-arrow {

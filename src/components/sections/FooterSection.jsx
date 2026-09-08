@@ -2,20 +2,24 @@ import React from 'react';
 import { ArrowUp, MapPin, Mail, Phone } from 'lucide-react';
 import './FooterSection.css';
 
-export function FooterSection() {
+export function FooterSection({ theme = 'light' }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const logoSrc = theme === 'dark' 
+    ? '/assets/brand/zorx-logo-white.png' 
+    : '/assets/brand/zorx-logo-green.png';
 
   return (
     <footer className="zorx-footer">
       <div className="container">
         <div className="footer-top-grid">
-          {/* Column 1: Brand Info & Official White Logo */}
+          {/* Column 1: Brand Info & Official Logo */}
           <div className="footer-brand-col">
-            <a href="#" className="footer-logo">
+            <a href="#hero" className="footer-logo">
               <img 
-                src="/assets/brand/zorx-logo-white.png" 
+                src={logoSrc} 
                 alt="ZORX Fueling Brands Growth" 
                 className="footer-logo-img" 
               />

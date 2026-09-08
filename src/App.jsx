@@ -8,7 +8,6 @@ import { WhyZorxSection } from './components/sections/WhyZorxSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
 import { CTASection } from './components/sections/CTASection';
 import { FooterSection } from './components/sections/FooterSection';
-import { PortfolioModal } from './components/common/PortfolioModal';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver';
 import './styles/globals.css';
 
@@ -23,7 +22,21 @@ const sectionTitleMap = {
 
 export function App() {
   const [loading, setLoading] = useState(true);
-  const [selectedItem, setSelectedItem] = useState(null);
+
+  // Theme Management (Light mode primary default)
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('zorx-theme');
+    return saved || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('zorx-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   // Initialize Intersection Observer hook for scroll-triggered animations
   useIntersectionObserver({
@@ -55,27 +68,20 @@ export function App() {
 
   return (
     <div className="zorx-app">
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      {loading && <Preloader theme={theme} onComplete={() => setLoading(false)} />}
 
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>
         <HeroSection />
         <AboutSection />
-        <ServicesSection onSelectService={(service) => setSelectedItem(service)} />
+        <ServicesSection />
         <WhyZorxSection />
-        <PortfolioSection onOpenModal={(item) => setSelectedItem(item)} />
+        <PortfolioSection theme={theme} />
         <CTASection />
       </main>
 
-      <FooterSection />
-
-      {selectedItem && (
-        <PortfolioModal 
-          item={selectedItem} 
-          onClose={() => setSelectedItem(null)} 
-        />
-      )}
+      <FooterSection theme={theme} />
     </div>
   );
 }

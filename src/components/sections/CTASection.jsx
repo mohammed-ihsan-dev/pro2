@@ -40,7 +40,7 @@ export function CTASection() {
         <div className="contact-grid">
           {/* Left Column: Heading, Subtitle & Direct Details */}
           <div className="contact-left">
-            <h2 className="contact-title reveal-up">LET'S TALK.</h2>
+            <h2 className="contact-title reveal-up">LET'S <span className="green-accent">TALK.</span></h2>
 
             <p className="contact-subtitle reveal-up">
               Have a project, idea, or opportunity in mind?<br />

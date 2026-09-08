@@ -4,7 +4,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #06110B; /* Deep dark green / black matching ZORX brand */
+  background-color: #F7F9F7; /* Light mode default matching ZORX theme */
   z-index: 999999;
   display: flex;
   align-items: center;
@@ -12,55 +12,89 @@
   pointer-events: auto;
   user-select: none;
   overflow: hidden;
+  will-change: opacity, transform;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
 }
 
-.zorx-brand-preloader.preloader-fade-out {
+.zorx-brand-preloader.dark-theme {
+  background-color: #06110B; /* Deep dark green / black matching ZORX dark mode */
+}
+
+/* Subtle X exit animation: backdrop fade + X scale (1 -> 1.04) and fade (1 -> 0) */
+.zorx-brand-preloader.preloader-exit {
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
 }
 
 .preloader-letter-container {
   position: relative;
   width: 55vw;
-  max-width: 500px;
+  max-width: 480px;
   aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.preloader-letter-img {
+/* Wrapper for clean positioning and hardware-accelerated scaling */
+.preloader-letter-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 40px rgba(8, 169, 79, 0.25));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   will-change: transform, opacity;
   transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.preloader-letter-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+/* Dark theme image styling */
+.zorx-brand-preloader.dark-theme .preloader-letter-img {
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 40px rgba(8, 169, 79, 0.25));
+}
+
+/* Light theme image styling - clean, crisp green letters on soft white background */
+.zorx-brand-preloader.light-theme .preloader-letter-img {
+  mix-blend-mode: normal;
+  filter: none;
+}
+
 /* Current active letter */
-.preloader-letter-img.active {
+.preloader-letter-wrapper.active {
   opacity: 1;
   transform: scale(1) translateY(0);
 }
 
 /* Outgoing past letter */
-.preloader-letter-img.past {
+.preloader-letter-wrapper.past {
   opacity: 0;
-  transform: scale(0.96) translateY(-8px);
+  transform: scale(0.96) translateY(-6px);
 }
 
 /* Incoming upcoming letter */
-.preloader-letter-img.upcoming {
+.preloader-letter-wrapper.upcoming {
   opacity: 0;
-  transform: scale(1.04) translateY(8px);
+  transform: scale(1.04) translateY(6px);
+}
+
+/* Exit animation on active X letter during preloader exit */
+.zorx-brand-preloader.preloader-exit .preloader-letter-wrapper.active {
+  opacity: 0;
+  transform: scale(1.04) translateY(0);
+  transition: opacity 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Responsive adjustments */
@@ -82,6 +116,14 @@
   .preloader-letter-container {
     width: 82vw;
     max-width: 280px;
+  }
+}
+
+/* Accessibility: Reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .zorx-brand-preloader,
+  .preloader-letter-wrapper {
+    transition-duration: 0.1s !important;
   }
 }
 

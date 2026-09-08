@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
 import { Button } from './Button';
 import './Navbar.css';
 
@@ -10,32 +10,41 @@ const navItems = [
   { label: 'Our Work', href: '#portfolio' },
 ];
 
-export function Navbar() {
+export function Navbar({ theme = 'light', toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 30;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
 
-      const sections = ['about', 'services', 'why-zorx', 'portfolio', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+          const sections = ['about', 'services', 'why-zorx', 'portfolio', 'contact'];
+          const scrollPosition = window.scrollY + 200;
 
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
-            break;
+          for (const sectionId of sections) {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPosition >= top && scrollPosition < top + height) {
+                setActiveSection((prev) => (prev !== sectionId ? sectionId : prev));
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -43,13 +52,17 @@ export function Navbar() {
     setMobileMenuOpen(false);
   };
 
+  const logoSrc = theme === 'dark' 
+    ? '/assets/brand/zorx-logo-white.png' 
+    : '/assets/brand/zorx-logo-green.png';
+
   return (
     <header className={`zorx-navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         {/* Logo Asset */}
         <a href="#hero" className="nav-logo" onClick={closeMobileMenu}>
           <img 
-            src="/assets/brand/zorx-logo-white.png" 
+            src={logoSrc} 
             alt="ZORX Fueling Brands Growth" 
             className="nav-logo-img"
           />
@@ -68,22 +81,47 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Action Button */}
+        {/* Right Actions: Theme Toggle + Contact CTA */}
         <div className="nav-actions desktop-only">
+          {toggleTheme && (
+            <button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+              title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+          )}
+
           <Button href="#contact" variant="primary" size="sm" icon={ArrowUpRight}>
             Start a Project
           </Button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          type="button"
-          className="mobile-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Actions: Theme Toggle + Hamburger Toggle */}
+        <div className="mobile-actions-right">
+          {toggleTheme && (
+            <button
+              type="button"
+              className="theme-toggle-btn mobile-theme-btn"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+          )}
+
+          <button
+            type="button"
+            className="mobile-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
@@ -91,7 +129,7 @@ export function Navbar() {
         <div className="drawer-inner">
           <div className="drawer-logo">
             <img 
-              src="/assets/brand/zorx-logo-white.png" 
+              src={logoSrc} 
               alt="ZORX" 
               className="drawer-logo-img" 
             />
@@ -118,3 +156,4 @@ export function Navbar() {
     </header>
   );
 }
+
