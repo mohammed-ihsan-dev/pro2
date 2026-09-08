@@ -1,0 +1,82 @@
+.zorx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Sizes */
+.zorx-btn-sm {
+  padding: 0.55rem 1.25rem;
+  font-size: var(--font-xs);
+}
+
+.zorx-btn-md {
+  padding: 0.8rem 1.75rem;
+  font-size: var(--font-sm);
+}
+
+.zorx-btn-lg {
+  padding: 1.05rem 2.4rem;
+  font-size: var(--font-base);
+}
+
+/* Primary Button: ZORX Brand Green */
+.zorx-btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 18px var(--color-primary-glow);
+}
+
+.zorx-btn-primary:hover {
+  background: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 108, 46, 0.4);
+}
+
+/* Secondary Button: Subtle Surface with Border */
+.zorx-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-light);
+  backdrop-filter: blur(10px);
+}
+
+.zorx-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--color-border-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* Outline Button: Green Border & Text */
+.zorx-btn-outline {
+  background: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.zorx-btn-outline:hover {
+  background: var(--color-primary-glow);
+  transform: translateY(-2px);
+}
+
+.zorx-btn-icon {
+  transition: transform var(--transition-fast);
+}
+
+.zorx-btn:hover .zorx-btn-icon.right {
+  transform: translateX(3px);
+}
+
+.zorx-btn:hover .zorx-btn-icon.left {
+  transform: translateX(-3px);
+}

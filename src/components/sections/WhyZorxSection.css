@@ -1,0 +1,247 @@
+/* Cinematic ZORX Why ZORX Section (The "X" Storytelling Chapter) */
+.zorx-why-section {
+  background-color: #06110B;
+  color: #F7F8F5;
+  padding: 8rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-cinematic-container {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   LEFT SIDE: THE "X" ARCHITECTURAL IMAGE MASK
+   -------------------------------------------------- */
+.why-x-frame-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.x-frame-wrapper {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+}
+
+.x-architectural-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------
+   RIGHT SIDE: EDITORIAL CONTENT & 4 DIFFERENTIATORS
+   -------------------------------------------------- */
+.why-editorial-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+}
+
+.why-eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #89958D;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.why-eyebrow-tag .eyebrow-accent-line {
+  width: 24px;
+  height: 2px;
+  background-color: #026D2E;
+  display: inline-block;
+}
+
+.why-editorial-heading {
+  font-family: var(--font-body);
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #F7F8F5;
+  margin-bottom: 1.5rem;
+}
+
+.why-editorial-heading .heading-line {
+  display: block;
+}
+
+.why-editorial-heading .green-accent {
+  color: #026D2E;
+}
+
+.why-paragraph {
+  font-size: clamp(1.025rem, 1.4vw, 1.18rem);
+  color: #89958D;
+  line-height: 1.68;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* 4 Differentiators Vertical Editorial List */
+.why-differentiators-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.differentiator-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease;
+}
+
+.differentiator-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.differentiator-row:hover {
+  border-color: rgba(2, 109, 46, 0.4);
+}
+
+.differentiator-icon-badge {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #026D2E;
+  background: rgba(2, 109, 46, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #08A94F;
+  margin-top: 0.2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.differentiator-row:hover .differentiator-icon-badge {
+  transform: scale(1.08);
+  background: rgba(2, 109, 46, 0.25);
+  color: #F7F8F5;
+}
+
+.differentiator-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.diff-title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #F7F8F5;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.diff-number {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: #08A94F;
+  letter-spacing: 0.1em;
+}
+
+.diff-desc {
+  font-size: var(--font-sm);
+  color: #89958D;
+  line-height: 1.6;
+}
+
+/* Bottom Action Link */
+.why-action-wrap {
+  margin-top: 0.8rem;
+}
+
+.why-approach-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: #89958D;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  padding: 0.4rem 0;
+}
+
+.why-approach-link:hover {
+  color: #F7F8F5;
+}
+
+.why-approach-link .link-arrow {
+  color: #026D2E;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.why-approach-link:hover .link-arrow {
+  color: #08A94F;
+  transform: translate(3px, -3px);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------- */
+@media (max-width: 991px) {
+  .zorx-why-section {
+    padding: 6rem 0;
+  }
+  .why-cinematic-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .why-x-frame-left {
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .x-side-editorial-label {
+    display: none; /* Hide side label on tablet/mobile for space */
+  }
+}
+
+@media (max-width: 640px) {
+  .zorx-why-section {
+    padding: 4.5rem 0;
+  }
+  .why-editorial-heading {
+    font-size: 2.15rem;
+  }
+  .why-paragraph {
+    font-size: 1rem;
+  }
+  .why-x-frame-left {
+    max-width: 300px;
+  }
+  .differentiator-row {
+    padding: 1rem 0;
+  }
+}

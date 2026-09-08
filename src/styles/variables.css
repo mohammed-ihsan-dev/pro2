@@ -1,0 +1,82 @@
+/* ZORX Official Green Design Tokens */
+:root {
+  /* Brand Primary Colors */
+  --color-primary: #026C2E;
+  --color-primary-dark: #014A20;
+  --color-primary-light: #038A3B;
+  --color-primary-glow: rgba(2, 108, 46, 0.25);
+
+  /* Dark Theme Surfaces */
+  --color-dark: #07130D;
+  --color-dark-surface: #0E1F16;
+  --color-dark-card: #14281E;
+  --color-dark-card-hover: #1B3528;
+
+  /* Light Theme Surfaces & Off-Whites */
+  --color-background-light: #F7F9F7;
+  --color-surface-light: #EEF5F0;
+  --color-white: #FFFFFF;
+
+  /* Typography Colors */
+  --color-text-dark: #07130D;
+  --color-text-light: #F7F9F7;
+  --color-muted: #68736C;
+  --color-text-muted-dark: #A3B2A8;
+
+  /* Borders & Dividers */
+  --color-border-light: #DDE7E0;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-border-accent: rgba(2, 108, 46, 0.35);
+
+  /* Functional Mappings for Component Backward Compatibility */
+  --bg-primary: var(--color-dark);
+  --bg-secondary: var(--color-dark-surface);
+  --bg-card: var(--color-dark-card);
+  --bg-card-hover: var(--color-dark-card-hover);
+  --bg-glass: rgba(7, 19, 13, 0.85);
+
+  --accent-gold: var(--color-primary);
+  --accent-gold-hover: var(--color-primary-light);
+  --accent-gold-glow: var(--color-primary-glow);
+  --accent-cyan: var(--color-primary-light);
+
+  --text-primary: var(--color-text-light);
+  --text-secondary: var(--color-text-muted-dark);
+  --text-muted: var(--color-muted);
+  --text-inverse: #FFFFFF;
+
+  --border-subtle: var(--color-border-dark);
+  --border-accent: var(--color-border-accent);
+
+  /* Typography Fonts */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 2rem;
+  --font-4xl: 2.75rem;
+  --font-5xl: 3.75rem;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max-width: 1280px;
+  --header-height: 84px;
+}

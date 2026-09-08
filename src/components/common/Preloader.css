@@ -1,0 +1,87 @@
+/* Full-Screen Cinematic ZORX Preloader */
+.zorx-brand-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #06110B; /* Deep dark green / black matching ZORX brand */
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+  overflow: hidden;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
+}
+
+.zorx-brand-preloader.preloader-fade-out {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.preloader-letter-container {
+  position: relative;
+  width: 55vw;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-letter-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 40px rgba(8, 169, 79, 0.25));
+  will-change: transform, opacity;
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Current active letter */
+.preloader-letter-img.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Outgoing past letter */
+.preloader-letter-img.past {
+  opacity: 0;
+  transform: scale(0.96) translateY(-8px);
+}
+
+/* Incoming upcoming letter */
+.preloader-letter-img.upcoming {
+  opacity: 0;
+  transform: scale(1.04) translateY(8px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .preloader-letter-container {
+    width: 65vw;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .preloader-letter-container {
+    width: 78vw;
+    max-width: 340px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preloader-letter-container {
+    width: 82vw;
+    max-width: 280px;
+  }
+}
+
